@@ -1,0 +1,14 @@
+<div style="display: grid; grid-template-columns: 50% 50%;">
+    <div class ='w-100 my-3 px-3' *ngFor = "let evt of dados">
+        <div class="card text-center">
+            <img class='card-img-top h-50 w-50 mx-auto' src={{evt.poster}}>    
+            <div class='card-body'>        
+                <h5 class="card-title">{{evt.nome}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{evt.data}}</h6>
+                <p id="classificacao" class="card-text">{{evt.classificacao}}</p>
+                <button  (click)="excluir(evt.nome)" id="btnExcluir" type="button" class="btn btn-danger btn-sm">Excluir</button>
+                <button  (click)="alterar(evt.nome)" id="btnAlterar" type="button" class="btn btn-warning btn-sm">Alterar</button>                  
+            </div>
+        </div>    
+    </div>
+</div>    

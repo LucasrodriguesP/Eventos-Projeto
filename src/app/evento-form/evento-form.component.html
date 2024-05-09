@@ -1,0 +1,14 @@
+<form class="form">
+    <label class="form-label">Nome</label>
+    <input class="form-control" name="nome" [disabled]="!inclusao" type="text" [(ngModel)]="evento.nome"/>
+    <label class="form-label">Classificacao</label>
+    <input class="form-control" name="classificacao" type="text" [(ngModel)]="evento.classificacao"/>
+    <label class="form-label">Data</label>
+    <input class="form-control" name="data" type="text" [(ngModel)]="evento.data"/>
+    <label class="form-label">Poster</label>
+    <input class="form-control" name="poster" type="text" [(ngModel)]="evento.poster"/>
+    <button class="btn btn-primary" *ngIf="inclusao" (click)="inserir()">Incluir</button>
+    <button class="btn btn-secondary text-warning" *ngIf="!inclusao" (click)="alterar()">Alterar</button>
+
+ 
+</form>
