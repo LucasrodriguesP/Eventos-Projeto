@@ -1,4 +1,4 @@
-<form class="form">
+<form  *ngIf="logado == true" class="form">
     <label class="form-label">Nome</label>
     <input class="form-control" name="nome" [disabled]="!inclusao" type="text" [(ngModel)]="evento.nome"/>
     <label class="form-label">Classificacao</label>
@@ -9,6 +9,15 @@
     <input class="form-control" name="poster" type="text" [(ngModel)]="evento.poster"/>
     <button class="btn btn-primary" *ngIf="inclusao" (click)="inserir()">Incluir</button>
     <button class="btn btn-secondary text-warning" *ngIf="!inclusao" (click)="alterar()">Alterar</button>
+</form>
 
- 
+<form *ngIf="logado == false" class ='form'>
+
+    <label class="form-label">Login</label>
+    <input class="form-control" name="loginKeyword" type="text" [(ngModel)]="loginKeyword"/>
+    <label class="form-label">Senha</label>
+    <input class="form-control" name="keyword" type="password" [(ngModel)]="keyword"/>
+    
+    <button class="btn btn-success" (click)="entrar()">Entrar</button>
+
 </form>

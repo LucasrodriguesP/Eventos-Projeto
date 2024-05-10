@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class EventoListaComponent {
 
+
   dados: Array<Evento> = []
 
   constructor(private repositorio: EventoService,

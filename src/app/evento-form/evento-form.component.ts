@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Evento } from '../evento';
 import { EventoService } from '../evento.service';
@@ -15,17 +15,26 @@ import { CommonModule } from '@angular/common';
   templateUrl: './evento-form.component.html',
   styleUrl: './evento-form.component.css'
 })
+
 export class EventoFormComponent {
 
   evento: Evento = new Evento();
   inclusao: boolean = true;
+  senha: string ='admin';
+  login: string ='admin';
+  keyword: string = '';
+  loginKeyword: string = '';
+  logado: boolean = false;
+
 
 
   constructor(private repositorio: EventoService,
               private router: Router,
-              private rotaAtual: ActivatedRoute){}
+              private rotaAtual: ActivatedRoute,
+              ){}
 
   ngOnInit(): void {
+
     this.inclusao = true;
     this.rotaAtual.paramMap.pipe(
        switchMap(
@@ -38,6 +47,7 @@ export class EventoFormComponent {
            else return of<Evento>(new Evento());
          })
     ).subscribe(p=>this.evento=p);
+
  }
 
   inserir = () => {
@@ -54,6 +64,15 @@ export class EventoFormComponent {
         this.evento = new Evento();
       }
     )
+  }
+
+  entrar = () => {
+    if(this.keyword == this.senha && this.loginKeyword == this.login){
+      this.logado = true
+    }
+    else{
+      alert('palavra de acesso incorreta');
+    }
   }
 
 }
