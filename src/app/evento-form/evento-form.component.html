@@ -7,8 +7,10 @@
     <input class="form-control" name="data" type="text" [(ngModel)]="evento.data"/>
     <label class="form-label">Poster</label>
     <input class="form-control" name="poster" type="text" [(ngModel)]="evento.poster"/>
-    <button class="btn btn-primary" *ngIf="inclusao" (click)="inserir()">Incluir</button>
-    <button class="btn btn-secondary text-warning" *ngIf="!inclusao" (click)="alterar()">Alterar</button>
+    <button class="btn btn-primary mt-2" *ngIf="inclusao" (click)="inserir()">Incluir</button>
+    <button class="btn btn-secondary text-warning mt-2" *ngIf="!inclusao" (click)="alterar()">Alterar</button>
+    <button  (click)="excluir(evento.nome)" id="btnExcluir"  *ngIf="!inclusao" class="btn btn-danger mx-3 mt-2">Excluir</button>
+
 </form>
 
 <form *ngIf="logado == false" class ='form'>
@@ -17,7 +19,6 @@
     <input class="form-control" name="loginKeyword" type="text" [(ngModel)]="loginKeyword"/>
     <label class="form-label">Senha</label>
     <input class="form-control" name="keyword" type="password" [(ngModel)]="keyword"/>
-    
-    <button class="btn btn-success" (click)="entrar()">Entrar</button>
+    <button class="btn btn-success mt-2" (click)="entrar()">Entrar</button>
 
 </form>

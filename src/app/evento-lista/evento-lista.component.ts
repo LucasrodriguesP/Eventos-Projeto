@@ -29,15 +29,7 @@ export class EventoListaComponent {
     )
   }
 
-  excluir = (nome: string) => {
-    this.repositorio.excluir(nome).subscribe(
-      _ => {
-        this.repositorio.obterTodos().subscribe(
-          (evts: Evento[]) => this.dados = evts
-        )
-      }
-    )
-  }
+
 
   alterar = (_nome: string) => {
     this.router.navigate(['/cadastro',{nome: _nome}]);

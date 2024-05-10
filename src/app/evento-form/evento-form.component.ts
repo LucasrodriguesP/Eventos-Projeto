@@ -66,6 +66,15 @@ export class EventoFormComponent {
     )
   }
 
+  excluir = (nome: string) => {
+    this.repositorio.excluir(nome).subscribe(
+      _ => {
+        this.evento = new Evento();
+        this.router.navigate(["/listagem"]);
+      }
+    )
+  }
+
   entrar = () => {
     if(this.keyword == this.senha && this.loginKeyword == this.login){
       this.logado = true
